@@ -81,22 +81,16 @@ export const translations = {
     ],
     download: {
       tag: 'Download',
-      headline: 'Get PhootFlow Desktop',
-      sub: 'Install it on your PC. It updates itself: when it opens (and every 4 hours) it checks for a new version, verifies its SHA-256 and restarts.',
-      button: 'Download for Windows',
+      headline: 'Edit less. Shoot more.',
+      sub: 'Download PhootFlow Desktop and let it do the repetitive part — you decide what is left. It updates itself: when it opens (and every 4 hours) it checks for a new version and installs it.',
+      button: 'Download PhootFlow for Windows',
       version: 'Version',
-      requirements: 'Windows 10/11 · 64-bit',
+      requirements: 'Windows 10/11 · 64-bit · Local AI',
       allVersions: 'All versions and checksums',
       notes: [
         'The first time, PhootFlow asks for an activation key. It is tied to your computer and works offline for up to 7 days in a row.',
         'The installer is not signed yet: if Windows warns you, click “More info → Run anyway”.',
       ],
-    },
-    cta: {
-      headline: 'Edit less. Shoot more.',
-      sub: 'Download PhootFlow and let it do the repetitive part. You decide what is left.',
-      button: 'Download PhootFlow Desktop',
-      note: 'Windows 10/11 · 64-bit · Local AI',
     },
     footer: {
       tagline: 'Photography workflow, on your desktop.',
@@ -244,22 +238,16 @@ export const translations = {
     ],
     download: {
       tag: 'Descarga',
-      headline: 'Descarga PhootFlow Desktop',
-      sub: 'Instálalo en tu PC. Se actualiza solo: al abrirse (y cada 4 horas) busca una versión nueva, comprueba su SHA-256 y se reinicia.',
-      button: 'Descargar para Windows',
+      headline: 'Edita menos. Dispara más.',
+      sub: 'Descarga PhootFlow Desktop y deja que haga la parte repetitiva: tú decides lo que queda. Se actualiza solo: al abrirse (y cada 4 horas) busca una versión nueva y la instala.',
+      button: 'Descargar PhootFlow para Windows',
       version: 'Versión',
-      requirements: 'Windows 10/11 · 64 bits',
+      requirements: 'Windows 10/11 · 64 bits · IA local',
       allVersions: 'Todas las versiones y sumas de verificación',
       notes: [
         'La primera vez, PhootFlow pide una clave de activación. Queda vinculada a tu equipo y funciona sin conexión hasta 7 días seguidos.',
         'El instalador aún no está firmado: si Windows avisa, pulsa «Más información → Ejecutar de todas formas».',
       ],
-    },
-    cta: {
-      headline: 'Edita menos. Dispara más.',
-      sub: 'Descarga PhootFlow y deja que haga la parte repetitiva. Tú decides lo que queda.',
-      button: 'Descargar PhootFlow Desktop',
-      note: 'Windows 10/11 · 64 bits · IA local',
     },
     footer: {
       tagline: 'El flujo de trabajo fotográfico, en tu escritorio.',

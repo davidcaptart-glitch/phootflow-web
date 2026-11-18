@@ -1,7 +1,7 @@
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import {
   Sparkles, Layers, Palette, SlidersHorizontal, Wand2, ShieldCheck,
-  Download, Play, Zap, ChevronDown, Monitor, Check, ExternalLink, Info,
+  Download, Play, ChevronDown, Monitor, Check, ExternalLink, Info,
 } from 'lucide-react';
 import { useState, useRef } from 'react';
 import { useI18n } from '@/i18n/context';
@@ -493,7 +493,7 @@ export default function Landing() {
       </section>
 
       {/* ── Download ──────────────────────────────────────────── */}
-      <section id="download" className="py-28 px-4 md:px-10 scroll-mt-16">
+      <section id="download" className="py-24 px-4 md:px-10 scroll-mt-16">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -501,24 +501,25 @@ export default function Landing() {
           transition={{ duration: 0.6, ease: easeExpo }}
           className="max-w-[760px] mx-auto text-center flex flex-col items-center"
         >
-          <SectionTag>{t.download.tag}</SectionTag>
-          <h2
-            className="text-white/90 font-light tracking-tight mb-3"
-            style={{ fontSize: 'clamp(28px, 3.5vw, 44px)', lineHeight: 1.1 }}
-          >
-            {t.download.headline}
-          </h2>
-          <p className="text-white/40 text-[14px] mb-10 max-w-lg mx-auto">{t.download.sub}</p>
-
           <div
-            className="w-full p-8 md:p-10 rounded-2xl flex flex-col items-center"
+            className="relative w-full p-8 md:p-12 rounded-3xl flex flex-col items-center overflow-hidden"
             style={{
-              background: 'rgba(255,0,128,0.06)',
+              background: 'radial-gradient(ellipse 100% 100% at 50% -20%, rgba(255,0,128,0.14) 0%, rgba(255,255,255,0.02) 100%)',
               border: '1px solid rgba(255,0,128,0.2)',
               boxShadow: '0 0 60px rgba(255,0,128,0.10)',
             }}
           >
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-64 h-1"
+              style={{ background: 'linear-gradient(90deg, transparent, rgba(255,0,128,0.6), transparent)' }} />
             <img src="/assets/icon.png" alt="" className="w-16 h-16 rounded-2xl mb-6" />
+            <SectionTag>{t.download.tag}</SectionTag>
+            <h2
+              className="text-white/90 font-light tracking-tight mb-4"
+              style={{ fontSize: 'clamp(28px, 3.5vw, 44px)', lineHeight: 1.1 }}
+            >
+              {t.download.headline}
+            </h2>
+            <p className="text-white/45 text-[14px] mb-8 max-w-lg mx-auto">{t.download.sub}</p>
 
             <DownloadButton label={t.download.button} className="text-[15px] px-8 py-3.5 mb-4" />
 
@@ -544,47 +545,6 @@ export default function Landing() {
                 </li>
               ))}
             </ul>
-          </div>
-        </motion.div>
-      </section>
-
-      {/* ── Final CTA ─────────────────────────────────────────── */}
-      <section className="py-20 px-4 md:px-10">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, ease: easeExpo }}
-          className="max-w-[700px] mx-auto text-center"
-        >
-          <div
-            className="px-6 py-12 md:p-14 rounded-3xl relative overflow-hidden"
-            style={{
-              background: 'radial-gradient(ellipse 100% 100% at 50% -20%, rgba(255,0,128,0.14) 0%, rgba(255,255,255,0.02) 100%)',
-              border: '1px solid rgba(255,0,128,0.15)',
-            }}
-          >
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-64 h-1"
-              style={{ background: 'linear-gradient(90deg, transparent, rgba(255,0,128,0.6), transparent)' }} />
-
-            <div
-              className="inline-flex items-center justify-center w-14 h-14 rounded-2xl mb-6"
-              style={{ background: 'rgba(255,0,128,0.12)', border: '1px solid rgba(255,0,128,0.2)' }}
-            >
-              <Zap className="w-6 h-6 text-[#FF0080]" strokeWidth={1.5} />
-            </div>
-
-            <h2
-              className="text-white/90 font-light tracking-tight mb-4"
-              style={{ fontSize: 'clamp(24px, 3vw, 38px)', lineHeight: 1.15 }}
-            >
-              {t.cta.headline}
-            </h2>
-            <p className="text-white/40 text-[14px] mb-8 max-w-md mx-auto">{t.cta.sub}</p>
-
-            <DownloadButton label={t.cta.button} className="text-[15px] px-8 py-3.5 mb-4" />
-
-            <p className="text-white/25 text-[11px]">{t.cta.note}</p>
           </div>
         </motion.div>
       </section>
