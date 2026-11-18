@@ -9,6 +9,6 @@
  * Después, FormSubmit da un alias aleatorio (p. ej. «a1b2c3…»): si se pone
  * en VITE_CONTACT_ID, la dirección de correo deja de aparecer en la web.
  */
-const CONTACT_ID: string = import.meta.env.VITE_CONTACT_ID || 'da.vid.captart@gmail.com';
+const CONTACT_ID: string = import.meta.env.VITE_CONTACT_ID || 'da34c382ff3aa01dd5fcaa4dfa1d2c6b';
 
 export const CONTACT_ENDPOINT = `https://formsubmit.co/ajax/${CONTACT_ID}`;
