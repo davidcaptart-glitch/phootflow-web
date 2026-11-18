@@ -1,7 +1,7 @@
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import {
   Sparkles, Layers, Palette, SlidersHorizontal, Wand2, ShieldCheck,
-  Download, Play, ChevronDown, Monitor, Check, ExternalLink, Info,
+  Download, Play, ChevronDown, Monitor, Check, ExternalLink, Info, KeyRound,
 } from 'lucide-react';
 import { useState, useRef } from 'react';
 import { useI18n } from '@/i18n/context';
@@ -539,7 +539,23 @@ export default function Landing() {
               <ExternalLink className="w-3 h-3" />
             </a>
 
-            <ul className="mt-8 space-y-2.5 text-left max-w-[560px]">
+            <div
+              className="mt-8 w-full max-w-[560px] flex flex-col sm:flex-row items-start sm:items-center gap-4 p-5 rounded-2xl text-left"
+              style={{ background: 'rgba(255,0,128,0.08)', border: '1px solid rgba(255,0,128,0.3)' }}
+            >
+              <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: 'rgba(255,0,128,0.15)' }}>
+                <KeyRound className="w-5 h-5 text-[#FF0080]" strokeWidth={1.75} />
+              </div>
+              <div className="flex-1">
+                <div className="text-white/90 text-[14px] font-semibold mb-0.5">{t.download.license.title}</div>
+                <p className="text-white/50 text-[12.5px] leading-relaxed">{t.download.license.desc}</p>
+              </div>
+              <button onClick={() => scrollTo('contact')} className="btn-ghost text-[13px] px-4 py-2 whitespace-nowrap">
+                {t.download.license.cta}
+              </button>
+            </div>
+
+            <ul className="mt-6 space-y-2.5 text-left max-w-[560px]">
               {t.download.notes.map((note) => (
                 <li key={note} className="flex items-start gap-2.5 text-[12px] text-white/40 leading-relaxed">
                   <Info className="w-3.5 h-3.5 mt-0.5 flex-shrink-0 text-white/30" />
