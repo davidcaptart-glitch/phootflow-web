@@ -47,23 +47,38 @@ export default function ContactForm() {
   return (
     <form onSubmit={onSubmit} className="w-full text-left space-y-4">
       {/* Configuración de FormSubmit */}
-      <input type="hidden" name="_subject" value="PhootFlow · Nuevo mensaje desde phootflow.com" />
+      <input type="hidden" name="_subject" value="PhootFlow · Nueva solicitud desde phootflow.com" />
       <input type="hidden" name="_template" value="table" />
       <input type="text" name="_honey" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
 
+      <label className="block">
+        <span className="block text-[12px] text-white/50 mb-1.5">{c.name} *</span>
+        <input name="name" required minLength={3} maxLength={120} autoComplete="name" placeholder={c.namePlaceholder} className={fieldClass} />
+      </label>
+
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <label className="block">
-          <span className="block text-[12px] text-white/50 mb-1.5">{c.name}</span>
-          <input name="name" required maxLength={120} placeholder={c.namePlaceholder} className={fieldClass} />
+          <span className="block text-[12px] text-white/50 mb-1.5">{c.email} *</span>
+          <input name="email" type="email" required maxLength={200} autoComplete="email" placeholder={c.emailPlaceholder} className={fieldClass} />
         </label>
         <label className="block">
-          <span className="block text-[12px] text-white/50 mb-1.5">{c.email}</span>
-          <input name="email" type="email" required maxLength={200} placeholder={c.emailPlaceholder} className={fieldClass} />
+          <span className="block text-[12px] text-white/50 mb-1.5">{c.phone} *</span>
+          <input
+            name="telefono"
+            type="tel"
+            required
+            autoComplete="tel"
+            inputMode="tel"
+            pattern="\+?[0-9 ]{9,20}"
+            title="600 000 000 / +34 600 000 000"
+            placeholder={c.phonePlaceholder}
+            className={fieldClass}
+          />
         </label>
       </div>
 
       <label className="block">
-        <span className="block text-[12px] text-white/50 mb-1.5">{c.reason}</span>
+        <span className="block text-[12px] text-white/50 mb-1.5">{c.reason} *</span>
         <select name="motivo" defaultValue={c.reasons[0]} className={`${fieldClass} appearance-none`}>
           {c.reasons.map((r) => (
             <option key={r} value={r} className="bg-[#111] text-white">{r}</option>
@@ -72,8 +87,13 @@ export default function ContactForm() {
       </label>
 
       <label className="block">
-        <span className="block text-[12px] text-white/50 mb-1.5">{c.message}</span>
-        <textarea name="message" required rows={5} maxLength={4000} placeholder={c.messagePlaceholder} className={`${fieldClass} resize-y`} />
+        <span className="block text-[12px] text-white/50 mb-1.5">{c.message} <span className="text-white/30">({c.optional})</span></span>
+        <textarea name="message" rows={4} maxLength={4000} placeholder={c.messagePlaceholder} className={`${fieldClass} resize-y`} />
+      </label>
+
+      <label className="flex items-start gap-3 cursor-pointer">
+        <input type="checkbox" name="consentimiento" value="Sí" required className="mt-0.5 w-4 h-4 accent-[#FF0080] flex-shrink-0" />
+        <span className="text-[12.5px] text-white/50 leading-relaxed">{c.consent} *</span>
       </label>
 
       {status === 'error' && (
