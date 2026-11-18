@@ -13,7 +13,7 @@ export const translations = {
       headline1: 'Edit a whole',
       headline2: 'photo session',
       headline3: 'on its own.',
-      sub: 'PhootFlow fixes exposure, cleans grain, straightens, suggests the best crop, sets aside the failed shots and exports 500, 1,000 or 2,000 photos with the style of your event — or with your own.',
+      sub: 'PhootFlow fixes exposure, cleans grain, straightens, suggests the best crop, sets aside the failed shots and exports up to 2,000 photos with the style of your event — or with your own.',
       cta: 'Download for Windows',
       ctaSecondary: 'See how it works',
       facts: ['Local AI — your photos never leave your PC', 'RAW: ARW, CR3, NEF, RAF, DNG… and JPG', 'Automatic updates'],
@@ -23,7 +23,7 @@ export const translations = {
     },
     video: {
       tag: 'See it in action',
-      headline: '500 photos from your event. Edited on their own.',
+      headline: '2,000 wedding photos. Edited on their own.',
     },
     features: {
       tag: 'What it does',
@@ -170,7 +170,7 @@ export const translations = {
       headline1: 'Edita una',
       headline2: 'sesión entera',
       headline3: 'sola.',
-      sub: 'PhootFlow corrige la exposición, limpia el grano, endereza, propone el mejor recorte, aparta las fallidas y exporta 500, 1.000 o 2.000 fotos con el estilo de tu evento — o con el tuyo.',
+      sub: 'PhootFlow corrige la exposición, limpia el grano, endereza, propone el mejor recorte, aparta las fallidas y exporta hasta 2.000 fotos con el estilo de tu evento — o con el tuyo.',
       cta: 'Descargar para Windows',
       ctaSecondary: 'Cómo funciona',
       facts: ['IA local: tus fotos no salen de tu PC', 'RAW: ARW, CR3, NEF, RAF, DNG… y JPG', 'Se actualiza solo'],
@@ -180,7 +180,7 @@ export const translations = {
     },
     video: {
       tag: 'Míralo en acción',
-      headline: '500 fotos de tu evento. Editadas solas.',
+      headline: '2.000 fotos de tu boda. Editadas solas.',
     },
     features: {
       tag: 'Qué hace',
