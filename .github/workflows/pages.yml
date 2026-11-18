@@ -1,0 +1,47 @@
+# Publica la landing en GitHub Pages con el dominio phootflow.com.
+# Requisito (una vez): Settings → Pages → Source: «GitHub Actions».
+name: Landing → GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Dependencias
+        # El package-lock apunta a registry.npmmirror.com; se fuerza el registro oficial de npm.
+        run: npm ci --legacy-peer-deps --registry=https://registry.npmjs.org/ --replace-registry-host=always --no-audit --no-fund
+      - name: Compilar
+        run: npx tsc -b && npx vite build
+      - name: Fallback SPA (rutas directas → index.html)
+        run: cp dist/index.html dist/404.html
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
