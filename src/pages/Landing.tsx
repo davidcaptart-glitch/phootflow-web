@@ -306,15 +306,15 @@ export default function Landing() {
             {/* Horizontal en escritorio, vertical (formato RRSS) en móvil */}
             <video
               className="hidden md:block w-full h-auto"
-              src="/assets/video/phootflow-web.mp4"
-              poster="/assets/video/phootflow-web-poster.jpg"
+              src="/assets/video/phootflow-web-boda.mp4"
+              poster="/assets/video/phootflow-web-boda-poster.jpg"
               autoPlay muted loop playsInline preload="metadata"
               aria-label={t.video.headline}
             />
             <video
               className="md:hidden w-full h-auto"
-              src="/assets/video/phootflow-vertical.mp4"
-              poster="/assets/video/phootflow-vertical-poster.jpg"
+              src="/assets/video/phootflow-vertical-boda.mp4"
+              poster="/assets/video/phootflow-vertical-boda-poster.jpg"
               autoPlay muted loop playsInline preload="metadata"
               aria-label={t.video.headline}
             />
