@@ -7,6 +7,7 @@ import { useState, useRef } from 'react';
 import { useI18n } from '@/i18n/context';
 import type { Lang } from '@/i18n/translations';
 import { DOWNLOAD_URL_WINDOWS, RELEASES_URL, APP_VERSION } from '@/config/download';
+import ContactForm from '@/components/ContactForm';
 
 /* ─── Motion variants ─────────────────────────────────── */
 const easeExpo = [0.16, 1, 0.3, 1] as const;
@@ -134,6 +135,7 @@ export default function Landing() {
             { label: t.nav.features, href: '#features' },
             { label: t.nav.workflow, href: '#workflow' },
             { label: t.nav.download, href: '#download' },
+            { label: t.nav.contact, href: '#contact' },
           ].map(({ label, href }) => (
             <a key={href} href={href} className="nav-link text-[13px]">{label}</a>
           ))}
@@ -549,6 +551,32 @@ export default function Landing() {
         </motion.div>
       </section>
 
+      {/* ── Contact ───────────────────────────────────────────── */}
+      <section id="contact" className="pb-24 px-4 md:px-10 scroll-mt-16">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: easeExpo }}
+          className="max-w-[760px] mx-auto flex flex-col items-center text-center"
+        >
+          <SectionTag>{t.contact.tag}</SectionTag>
+          <h2
+            className="text-white/90 font-light tracking-tight mb-3"
+            style={{ fontSize: 'clamp(28px, 3.2vw, 40px)', lineHeight: 1.1 }}
+          >
+            {t.contact.headline}
+          </h2>
+          <p className="text-white/40 text-[14px] mb-8 max-w-lg">{t.contact.sub}</p>
+          <div
+            className="w-full p-6 md:p-8 rounded-2xl"
+            style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)' }}
+          >
+            <ContactForm />
+          </div>
+        </motion.div>
+      </section>
+
       {/* ── Footer ────────────────────────────────────────────── */}
       <footer
         className="px-4 md:px-10 pt-14 pb-8"
@@ -568,6 +596,7 @@ export default function Landing() {
                   { label: t.footer.links.features, href: '#features' },
                   { label: t.footer.links.workflow, href: '#workflow' },
                   { label: t.footer.links.download, href: '#download' },
+                  { label: t.footer.links.contact, href: '#contact' },
                   { label: t.footer.links.releases, href: RELEASES_URL, external: true },
                 ].map(({ label, href, external }) => (
                   <li key={href}>
