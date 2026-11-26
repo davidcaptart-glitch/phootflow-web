@@ -105,6 +105,7 @@ export const translations = {
       sub: 'Two mobile versions, for Android and iPhone. They install from the browser, no app store needed, and edit your photos on the phone itself: nothing is uploaded.',
       install: 'Open it on your phone and choose “Add to Home Screen” (or “Install app”).',
       license: 'They need their own mobile license: request it with the form below.',
+      video: 'PhootFlow Lite in 30 seconds',
       lite: {
         name: 'PhootFlow Lite',
         audience: 'For enthusiasts',
@@ -326,6 +327,7 @@ export const translations = {
       sub: 'Dos versiones para móvil, Android e iPhone. Se instalan desde el navegador, sin pasar por la tienda, y editan las fotos en el propio teléfono: no se suben a ningún sitio.',
       install: 'Ábrela en el móvil y elige «Añadir a pantalla de inicio» (o «Instalar app»).',
       license: 'Necesitan su propia licencia de móvil: pídela en el formulario de abajo.',
+      video: 'PhootFlow Lite en 30 segundos',
       lite: {
         name: 'PhootFlow Lite',
         audience: 'Para aficionados',

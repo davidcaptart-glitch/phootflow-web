@@ -588,6 +588,33 @@ export default function Landing() {
             <p className="text-white/45 text-[15px] max-w-xl mx-auto">{t.mobile.sub}</p>
           </motion.div>
 
+          {/* Reel vertical de Lite (el mismo que se publica en Instagram) */}
+          <motion.figure
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.6, ease: easeExpo }}
+            className="mx-auto mb-12 w-[280px] md:w-[320px] flex flex-col items-center"
+          >
+            <div
+              className="w-full rounded-[28px] overflow-hidden"
+              style={{
+                aspectRatio: '9 / 16',
+                border: '1px solid rgba(255,0,128,0.22)',
+                boxShadow: '0 40px 120px rgba(0,0,0,0.7), 0 0 80px rgba(255,0,128,0.12)',
+              }}
+            >
+              <video
+                className="w-full h-full object-cover"
+                src="/assets/video/phootflow-lite-reel.mp4"
+                poster="/assets/video/phootflow-lite-reel-poster.jpg"
+                autoPlay muted loop playsInline preload="metadata"
+                aria-label={t.mobile.video}
+              />
+            </div>
+            <figcaption className="mt-4 text-white/45 text-[13px]">{t.mobile.video}</figcaption>
+          </motion.figure>
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             {[
               { key: 'lite', name: t.mobile.lite.name, audience: t.mobile.lite.audience, badge: t.mobile.tag, desc: t.mobile.lite.desc, points: t.mobile.lite.points, note: '', cta: t.mobile.lite.cta, url: MOBILE_LITE_URL, primary: true },
