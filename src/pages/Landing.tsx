@@ -1,12 +1,12 @@
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import {
   Sparkles, Layers, Palette, SlidersHorizontal, Wand2, ShieldCheck,
-  Download, Play, ChevronDown, Monitor, Check, ExternalLink, Info, KeyRound,
+  Download, Play, ChevronDown, Monitor, Check, ExternalLink, Info, KeyRound, Smartphone,
 } from 'lucide-react';
 import { useState, useRef } from 'react';
 import { useI18n } from '@/i18n/context';
 import type { Lang } from '@/i18n/translations';
-import { DOWNLOAD_URL_WINDOWS, RELEASES_URL, APP_VERSION } from '@/config/download';
+import { DOWNLOAD_URL_WINDOWS, RELEASES_URL, APP_VERSION, MOBILE_LITE_URL, MOBILE_PRO_URL } from '@/config/download';
 import ContactForm from '@/components/ContactForm';
 
 /* ─── Motion variants ─────────────────────────────────── */
@@ -135,6 +135,7 @@ export default function Landing() {
             { label: t.nav.features, href: '#features' },
             { label: t.nav.workflow, href: '#workflow' },
             { label: t.nav.download, href: '#download' },
+            { label: t.nav.mobile, href: '#mobile' },
             { label: t.nav.contact, href: '#contact' },
           ].map(({ label, href }) => (
             <a key={href} href={href} className="nav-link text-[13px]">{label}</a>
@@ -567,6 +568,92 @@ export default function Landing() {
         </motion.div>
       </section>
 
+      {/* ── Mobile apps ─────────────────────────────────────── */}
+      <section id="mobile" className="py-24 px-4 md:px-10 scroll-mt-16">
+        <div className="max-w-[1000px] mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.6, ease: easeExpo }}
+            className="text-center mb-12 flex flex-col items-center"
+          >
+            <SectionTag>{t.mobile.tag}</SectionTag>
+            <h2
+              className="text-white/90 font-light tracking-tight mb-4"
+              style={{ fontSize: 'clamp(28px, 3.5vw, 44px)', lineHeight: 1.1 }}
+            >
+              {t.mobile.headline}
+            </h2>
+            <p className="text-white/45 text-[15px] max-w-xl mx-auto">{t.mobile.sub}</p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            {[
+              { key: 'lite', name: t.mobile.lite.name, audience: t.mobile.lite.audience, badge: t.mobile.tag, desc: t.mobile.lite.desc, points: t.mobile.lite.points, note: '', cta: t.mobile.lite.cta, url: MOBILE_LITE_URL, primary: true },
+              { key: 'pro', name: t.mobile.pro.name, audience: t.mobile.pro.audience, badge: t.mobile.pro.badge, desc: t.mobile.pro.desc, points: t.mobile.pro.points, note: t.mobile.pro.note, cta: t.mobile.pro.cta, url: MOBILE_PRO_URL, primary: false },
+            ].map((app, i) => (
+              <motion.div
+                key={app.key}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-40px' }}
+                transition={{ duration: 0.5, delay: i * 0.08, ease: easeExpo }}
+                className="p-7 md:p-8 rounded-3xl flex flex-col"
+                style={{
+                  background: app.primary ? 'radial-gradient(ellipse 100% 100% at 50% -20%, rgba(255,0,128,0.12) 0%, rgba(255,255,255,0.02) 100%)' : 'rgba(255,255,255,0.03)',
+                  border: app.primary ? '1px solid rgba(255,0,128,0.25)' : '1px solid rgba(255,255,255,0.08)',
+                }}
+              >
+                <div className="flex items-center gap-3 mb-5">
+                  <img src="/assets/mark.png" alt="" className="h-9 w-auto" />
+                  <div className="flex flex-col">
+                    <span className="text-white/90 text-[17px] font-semibold">{app.name}</span>
+                    <span className="text-[#FF4DA6] text-[12px] font-semibold uppercase tracking-widest">{app.audience}</span>
+                  </div>
+                  <span className="ml-auto inline-flex items-center gap-1 text-[11px] text-white/50 px-2.5 py-1 rounded-full whitespace-nowrap" style={{ border: '1px solid rgba(255,255,255,0.1)' }}>
+                    <Smartphone className="w-3 h-3" />
+                    {app.badge}
+                  </span>
+                </div>
+                <p className="text-white/65 text-[14px] leading-relaxed mb-5">{app.desc}</p>
+                <ul className="space-y-2.5 mb-6">
+                  {app.points.map((pt) => (
+                    <li key={pt} className="flex items-start gap-2.5 text-[13px] text-white/55">
+                      <span className="w-4 h-4 mt-0.5 rounded-full flex items-center justify-center flex-shrink-0" style={{ background: 'rgba(255,0,128,0.15)' }}>
+                        <Check className="w-2.5 h-2.5 text-[#FF0080]" strokeWidth={2.5} />
+                      </span>
+                      {pt}
+                    </li>
+                  ))}
+                </ul>
+                {app.note && <p className="text-white/45 text-[12px] leading-relaxed mb-5">{app.note}</p>}
+                <motion.a
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  href={app.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`${app.primary ? 'btn-brand' : 'btn-ghost'} gap-2 text-[14px] px-6 py-3 mt-auto justify-center`}
+                >
+                  <Smartphone className="w-4 h-4" />
+                  {app.cta}
+                </motion.a>
+              </motion.div>
+            ))}
+          </div>
+
+          <ul className="mt-8 space-y-2.5 max-w-[620px] mx-auto">
+            {[t.mobile.install, t.mobile.license].map((note) => (
+              <li key={note} className="flex items-start gap-2.5 text-[12.5px] text-white/45 leading-relaxed">
+                <Info className="w-3.5 h-3.5 mt-0.5 flex-shrink-0 text-white/30" />
+                {note}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
       {/* ── Contact ───────────────────────────────────────────── */}
       <section id="contact" className="pb-24 px-4 md:px-10 scroll-mt-16">
         <motion.div
@@ -612,6 +699,7 @@ export default function Landing() {
                   { label: t.footer.links.features, href: '#features' },
                   { label: t.footer.links.workflow, href: '#workflow' },
                   { label: t.footer.links.download, href: '#download' },
+                  { label: t.nav.mobile, href: '#mobile' },
                   { label: t.footer.links.contact, href: '#contact' },
                   { label: t.footer.links.releases, href: RELEASES_URL, external: true },
                 ].map(({ label, href, external }) => (

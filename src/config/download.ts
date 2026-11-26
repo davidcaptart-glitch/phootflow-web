@@ -17,3 +17,7 @@ export const DOWNLOAD_URL_WINDOWS: string =
 
 /** Versión mostrada junto al botón (opcional; vacío = no se muestra). */
 export const APP_VERSION: string = import.meta.env.VITE_APP_VERSION || '';
+
+/** Apps para móvil (PWA en Vercel). Cuando lite./pro.phootflow.com apunten a Vercel, se cambian aquí. */
+export const MOBILE_LITE_URL: string = import.meta.env.VITE_MOBILE_LITE_URL || 'https://phootflow-lite.vercel.app';
+export const MOBILE_PRO_URL: string = import.meta.env.VITE_MOBILE_PRO_URL || 'https://phootflow-pro.vercel.app';
